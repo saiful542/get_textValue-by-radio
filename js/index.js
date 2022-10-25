@@ -6,7 +6,11 @@ const radio_array = Array.from(radio_input)
 const display_value = document.querySelector('.output .value');
 const last_field = document.querySelector('.radio-form .field:last-child')
 
-// console.log(field_parent)
+
+// item no
+let item = field_parent.lastElementChild.firstElementChild.nextElementSibling.value
+let item_int_value = parseInt(item[item.length - 1])
+// item no
 
 
 
@@ -14,6 +18,7 @@ field_parent.addEventListener('click', (e) => {
     // delete
     if (e.target.className == 'button') {
         e.target.parentNode.parentNode.removeChild(e.target.parentNode)
+        item_int_value--;
     }
 
     // take value
@@ -23,49 +28,25 @@ field_parent.addEventListener('click', (e) => {
 
 })
 
-let item = field_parent.lastElementChild.firstElementChild.nextElementSibling.value
-console.log(item)
+
 
 // add
+add_field.style = 'width:100%; margin:10px; padding:10px; cursor:pointer'
 add_field.addEventListener('click', (e) => {
-    item++;
+    item_int_value++;
     const div = document.createElement('div')
     div.classList.add('field')
     div.innerHTML = `<input type="radio" name="radio" class="radio-field ">
-                     <input type="text" class="text-field" value="${item}">
+                     <input type="text" class="text-field" value="option ${item_int_value}">
                      <button  class="button">delete</button>`
     field_parent.appendChild(div)
 })
 
-// console.log(radio_input)
 
 
 
 
-
-
-
-
-
-// radio_array.forEach(radio => {
-//     radio.addEventListener('change', (e) => {
-//         console.log(e.target.nextElementSibling.value)
-//         display_value.innerHTML = `<p>${e.target.nextElementSibling.value}</p>`
-//     })
-
-// });
-
-
-
-
-
-
-
-
-
-
-
-
+// OLD COLDE
 
 // const handleRadio = () => {
 //     radio_input.forEach(element => {
