@@ -31,7 +31,6 @@ field_parent.addEventListener('click', (e) => {
 
 
 // add
-add_field.style = 'width:100%; margin:10px; padding:10px; cursor:pointer'
 add_field.addEventListener('click', (e) => {
     item_int_value++;
     const div = document.createElement('div')
